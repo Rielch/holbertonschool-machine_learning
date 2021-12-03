@@ -12,7 +12,7 @@ def add_matrices2D(arr1, arr2):
 
     for row in range(len(arr1)):
         result.append([])
-        for element in range(len(arr1[0])): 
+        for element in range(len(arr1[0])):
             result[row].append(arr1[row][element] + arr2[row][element])
 
     return result
