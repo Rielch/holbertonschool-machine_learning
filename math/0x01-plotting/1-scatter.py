@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import numpy as np
 import matplotlib.pyplot as plt
+"""plot x -> y as a scatter plot"""
+
 
 mean = [69, 0]
 cov = [[15, 8], [8, 15]]
@@ -11,5 +13,5 @@ y += 180
 plt.ylabel('Weight (lbs)')
 plt.xlabel('Height (in)')
 plt.title('Men\'s Height vs Weight')
-plt.plot(x, y, 'm.')
+plt.scatter(x, y, c='m', marker='.')
 plt.show()
