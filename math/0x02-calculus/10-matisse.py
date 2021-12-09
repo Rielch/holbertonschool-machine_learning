@@ -13,6 +13,6 @@ def poly_derivative(poly):
 
     powers = [i for i in range(len(poly))]
     result = [powers[x] * poly[x] for x in range(1, len(poly))]
-    if len(list(result)) == 0:
+    if len(list(result)) == 1:
         return [0]
     return result
