@@ -11,10 +11,8 @@ def poly_derivative(poly):
     elif len(poly) == 1:
         return [0]
 
-    result = []
-    for x in range(1, len(poly)):
-        result.append(poly[x] * x)
-
+    powers = [i for i in range(len(poly))]
+    result = [powers[x] * poly[x] for x in range(1, len(poly))]
     if len(list(result)) == 0:
         return [0]
     return result
