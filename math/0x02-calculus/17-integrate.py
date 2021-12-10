@@ -17,6 +17,7 @@ def poly_integral(poly, C=0):
     result = []
     result.append(C)
     for x in range(len(poly)):
-        result.append(int(poly[x] / (x + 1)))
+        calc = poly[x] / (x + 1)
+        result.append(int(calc) if calc.is_integer() else calc)
 
     return result
