@@ -52,7 +52,8 @@ class Normal:
     def pdf(self, x):
         """Calculates the PDF of a x-value"""
 
-        return 1 / (self.stddev * self.tau ** 0.5 * self.e ** (self.z_score(x) ** 2 / 2))
+        return 1 / (self.stddev * self.tau ** 0.5 * self.e **
+                    (self.z_score(x) ** 2 / 2))
 
     def cdf(self, x):
         """Calculates the CDF of a x-value"""
