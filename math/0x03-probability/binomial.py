@@ -42,8 +42,8 @@ class Binomial:
         k = int(k)
         if k < 0:
             return 0
-        return ((self.factorial(self.n) /
-                 (self.factorial(k) * self.factorial(self.n - k))) *
+        return ((factorial(self.n) /
+                 (factorial(k) * factorial(self.n - k))) *
                 (self.p ** k) * ((1 - self.p) ** (self.n - k)))
 
     def cdf(self, k):
