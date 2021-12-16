@@ -35,7 +35,7 @@ class Binomial:
         def factorial(n):
             """Returns the factorial of a number"""
             result = 1
-            for i in range(2, k + 1):
+            for i in range(2, n + 1):
                 result = result * i
             return result
 
