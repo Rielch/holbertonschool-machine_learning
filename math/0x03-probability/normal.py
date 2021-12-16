@@ -30,10 +30,10 @@ class Normal:
                 difference += (data[i] - self.mean) ** 2
             self.stddev = (difference / len(data)) ** 0.5
 
-    def efr(self, x):
+    def erf(self, x):
         """Error function"""
 
-        return (2 / (pi ** 0.5)) * (x
+        return (2 / (self.pi ** 0.5)) * (x
                                     - x ** 3 / 3
                                     + x ** 5 / 10
                                     - x ** 7 / 42
@@ -44,8 +44,8 @@ class Normal:
 
         return (x - self.mean) / self.stddev
 
-    def x_score(self, z):
-        """Calcualtes the x-score of a z-value"""
+    def x_value(self, z):
+        """Calcualtes the x-value of a z-score"""
 
         return (z * self.stddev) + self.mean
 
