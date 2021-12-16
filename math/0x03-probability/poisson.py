@@ -5,6 +5,8 @@
 class Poisson:
     """Poison distribution"""
 
+    e = 2.7182818285
+
     def __init__(self, data=None, lambtha=1):
         """Initializates an instance of Poisson"""
 
@@ -45,4 +47,4 @@ class Poisson:
         result = 0
         for i in range(0, k + 1):
             result += self.pmf(i)
-        return cdf
+        return result
