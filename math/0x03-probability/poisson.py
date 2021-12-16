@@ -33,6 +33,7 @@ class Poisson:
         k = int(k)
         if k < 0:
             return 0
+        return (self.lambtha ** k * self.e ** -self.lambtha) / factorial(k)
 
     def cdf(self, k):
         """Calculates the CDF for a given number of successes"""
