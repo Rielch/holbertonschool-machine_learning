@@ -34,10 +34,10 @@ class Normal:
         """Error function"""
 
         return (2 / (self.pi ** 0.5)) * (x
-                                    - x ** 3 / 3
-                                    + x ** 5 / 10
-                                    - x ** 7 / 42
-                                    + x ** 9 / 216)
+                                         - x ** 3 / 3
+                                         + x ** 5 / 10
+                                         - x ** 7 / 42
+                                         + x ** 9 / 216)
 
     def z_score(self, x):
         """Calculates the z-score of a x-value"""
