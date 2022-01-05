@@ -62,6 +62,6 @@ class DeepNeuralNetwork:
 
     def evaluate(self, X, Y):
         """Calculates the cost of the model using logistic regression"""
-        A = self.forward_prop(X)[1]
-        prediction = np.where(A["A" + str(self.__L)] >= 0.5, 1, 0)
-        return prediction, self.cost(Y, A["A" + str(self.__L)])
+        A, cache = self.forward_prop(X)
+        prediction = np.where(cache["A" + str(self.__L)] >= 0.5, 1, 0)
+        return prediction, self.cost(Y, cache["A" + str(self.__L)])
