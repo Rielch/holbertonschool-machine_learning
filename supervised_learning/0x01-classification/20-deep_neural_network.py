@@ -47,11 +47,16 @@ class DeepNeuralNetwork:
         """Calculates the forward propagation of the neural network"""
         self.__cache["A0"] = X
         for i in range(self.__L):
-            self.__cache["A" + str(i + 1)] = 1.0 / (1.0 + np.exp(np.dot(
+            self.__cache["A" + str(i + 1)] = self.sigmoid(np.dot(
                 self.__weights["W" + str(i + 1)],
                 self.__cache["A" + str(i)]) + self.__weights["b" +
-                                                             str(i + 1)]))
+                                                             str(i + 1)])
         return self.__cache["A" + str(self.__L)], self.__cache
+
+    @staticmethod
+    def sigmoid(x):
+        """Performs sigmoid in a number"""
+        return 1.0 / (1.0 + np.exp(-x))    
 
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression"""
@@ -62,6 +67,6 @@ class DeepNeuralNetwork:
 
     def evaluate(self, X, Y):
         """Calculates the cost of the model using logistic regression"""
-        pred1, pred2 = self.forward_prop(X)
-        predic2 = np.where(pred2["A" + str(self.__L)] >= 0.5, 1, 0)
-        return predic2, self.cost(Y, pred2["A" + str(self.__L)])
+        A = self.forward_prop(X)[1]
+        predic2 = np.where(A >= 0.5, 1, 0)
+        return predic2, self.cost(Y, A)
