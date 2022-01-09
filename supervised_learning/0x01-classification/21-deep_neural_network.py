@@ -78,7 +78,7 @@ class DeepNeuralNetwork:
         for i in range(self.__L, 0, -1):
             grad1 = np.matmul(grad, cache["A" + str(i - 1)].T) / m
             grad2 = np.sum(grad, axis=1, keepdims=True) / m
-            grad = np.matmul(self.__waights["W" + str(i)].T, grad) * (
+            grad = np.matmul(self.__weights["W" + str(i)].T, grad) * (
                 cache["A" + str(i - 1)] * (1 - cache["A" + str(i - 1)]))
             self.__weights["W" + str(i)] -= alpha * grad1
             self.__weights["b" + str(i)] -= alpha * grad2
