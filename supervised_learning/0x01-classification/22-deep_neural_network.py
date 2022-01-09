@@ -73,7 +73,7 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
-        m = shape(Y)[1]
+        m = np.shape(Y)[1]
         grad = cache["A" + str(self.__L)] - Y
         for i in range(self.__L, 0, -1):
             grad1 = np.matmul(grad, cache["A" + str(i - 1)].T) / m
