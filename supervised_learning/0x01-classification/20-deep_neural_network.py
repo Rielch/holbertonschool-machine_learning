@@ -56,7 +56,7 @@ class DeepNeuralNetwork:
     @staticmethod
     def sigmoid(x):
         """Performs sigmoid in a number"""
-        return 1.0 / (1.0 + np.exp(-x))    
+        return 1.0 / (1.0 + np.exp(-x))
 
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression"""
@@ -67,6 +67,6 @@ class DeepNeuralNetwork:
 
     def evaluate(self, X, Y):
         """Calculates the cost of the model using logistic regression"""
-        A = self.forward_prop(X)[1]
+        A = self.forward_prop(X)[0]
         predic2 = np.where(A >= 0.5, 1, 0)
         return predic2, self.cost(Y, A)

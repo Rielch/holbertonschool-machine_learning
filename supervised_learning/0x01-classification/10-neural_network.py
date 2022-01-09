@@ -33,7 +33,7 @@ class NeuralNetwork:
     def W2(self):
         """Gets the value of W2"""
         return self.__W2
-        
+
     @property
     def b1(self):
         """Gets the value of b1"""
