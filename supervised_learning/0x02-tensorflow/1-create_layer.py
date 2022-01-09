@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Function that returns the tensor output of the layer"""
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def create_layer(prev, n, activation):

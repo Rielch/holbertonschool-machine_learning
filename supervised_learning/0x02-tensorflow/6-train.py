@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Function that builds, trains,
  and saves a neural network classifier"""
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def train(X_train, Y_train, X_valid, Y_valid,

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Function that creates the training operation for the network"""
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def create_train_op(loss, alpha):
