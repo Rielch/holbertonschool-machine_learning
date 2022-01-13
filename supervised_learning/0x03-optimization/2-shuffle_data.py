@@ -9,5 +9,5 @@ def shuffle_data(X, Y):
     two matrices the same way"""
     shuffle = np.random.permutation(X.shape[0])
     x_shuffle = X[shuffle]
-    y_shuffle = T[shuffle]
+    y_shuffle = Y[shuffle]
     return x_shuffle, y_shuffle
