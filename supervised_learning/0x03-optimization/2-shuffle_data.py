@@ -8,4 +8,6 @@ def shuffle_data(X, Y):
     """Shuffles the data points in
     two matrices the same way"""
     shuffle = np.random.permutation(X.shape[0])
-    return X[shuffle], Y[shuffle]
+    x_shuffle = X[shuffle]
+    y_shuffle = T[shuffle]
+    return x_shuffle, y_shuffle
