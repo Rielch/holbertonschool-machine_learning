@@ -7,4 +7,4 @@ import numpy as np
 def sensitivity(confusion):
     """Caclulates the sesitiviity for
     each class in a confusion matrix"""
-    return np.sum(confusion, axis=1) / np.diagonal(confusion)
+    return np.diagonal(confusion) / np.sum(confusion, axis=1)
