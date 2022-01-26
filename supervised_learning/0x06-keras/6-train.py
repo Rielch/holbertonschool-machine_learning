@@ -8,7 +8,7 @@ def train_model(network, data, labels, batch_size,
                 patience=0, verbose=True, shuffle=False):
     """Ttrains a model using mini-batch gradient descent"""
     if early_stopping:
-        callback = K.callbacks.EarlyStopping(monitor='var_loss',
+        callback = K.callbacks.EarlyStopping(monitor='val_loss',
                                              patience=patience)
     else:
         callback = None
