@@ -13,7 +13,7 @@ def train_model(network, data, labels, batch_size,
     callback = []
     if early_stopping:
         callback.append(K.callbacks.EarlyStopping(monitor='val_loss',
-                                             patience=patience))
+                                                  patience=patience))
     if learning_rate_decay and validation_data:
         callback.append(K.callbacks.LearningRateScheduler(
             scheduler, verbose=1))
