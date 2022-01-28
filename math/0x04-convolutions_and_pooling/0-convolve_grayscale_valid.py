@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
-
-import matplotlib.pyplot as plt
+"""function that performs a valid convolution on grayscale images"""
 import numpy as np
-convolve_grayscale_valid = __import__('0-convolve_grayscale_valid').convolve_grayscale_valid
 
 
-if __name__ == '__main__':
-
-    dataset = np.load('../../supervised_learning/data/MNIST.npz')
-    images = dataset['X_train']
-    print(images.shape)
-    kernel = np.array([[1 ,0, -1], [1, 0, -1], [1, 0, -1]])
-    images_conv = convolve_grayscale_valid(images, kernel)
-    print(images_conv.shape)
-
-    plt.imshow(images[4000], cmap='gray')
-    plt.show()
-    plt.imshow(images_conv[4000], cmap='gray')
-    plt.show()
+def convolve_grayscale_valid(images, kernel):
+    """Performs a valid convolution on grayscale images"""
+    m, h, w = images.shape
+    kh, kw = kernel.shape
+    out_h = h - kh + 1
+    out_w = w - kw + 1
+    conv = np.zeros(shape=(m, out_h, out_w))
+    for i in range(0, (out_h * out_w)):
+        row = i // out_w
+        col = i % out_w
+        conv[:, row, col] = (
+            images[:, row:kh + row, col:kw + col] * kernel).sum(axis=(1, 2))
+    return conv
