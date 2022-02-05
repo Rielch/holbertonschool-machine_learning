@@ -21,6 +21,7 @@ def lenet5(x, y):
                                filters=16,
                                kernel_size=(5, 5),
                                kernel_initializer=kernel,
+                               padding="VALID",
                                activation='relu')
     L4_pool = tf.layers.max_pooling2d(inputs=L3_conv,
                                       pool_size=(2, 2),
