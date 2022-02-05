@@ -8,34 +8,33 @@ def lenet5(x, y):
     """Builds a modified version of the
     LeNet-5 architecture using tensorflow"""
     kernel = tf.keras.initializers.VarianceScaling(scale=2.0)
-    L1_conv = tf.layers.conv2d(inputs=x,
+    L1_conv = tf.layers.Conv2D(inputs=x,
                                filters=6,
                                kernel_size=(5, 5),
                                kernel_initializer=kernel,
-                               padding="SAME",
+                               padding="same",
                                activation='relu')
-    L2_pool = tf.layers.max_pooling2d(inputs=L1_conv,
+    L2_pool = tf.layers.MaxPooling2D(inputs=L1_conv,
                                       pool_size=(2, 2),
                                       strides=(2, 2))
-    L3_conv = tf.layers.conv2d(inputs=L2_pool,
+    L3_conv = tf.layers.Conv2D(inputs=L2_pool,
                                filters=16,
                                kernel_size=(5, 5),
                                kernel_initializer=kernel,
-                               padding="VALID",
                                activation='relu')
-    L4_pool = tf.layers.max_pooling2d(inputs=L3_conv,
+    L4_pool = tf.layers.MaxPooling2D(inputs=L3_conv,
                                       pool_size=(2, 2),
                                       strides=(2, 2))
-    L4_flat = tf.contrib.layers.flatten(L4_pool)
-    L5_fc = tf.layers.dense(inputs=L4_flat,
+    L4_flat = tf.layers.flatten(L4_pool)
+    L5_fc = tf.layers.Dense(inputs=L4_flat,
                             units=120,
                             kernel_initializer=kernel,
                             activation='relu')
-    L6_fc = tf.layers.dense(inputs=L5_fc,
+    L6_fc = tf.layers.Dense(inputs=L5_fc,
                             units=84,
                             kernel_initializer=kernel,
                             activation='relu')
-    L7_fc = tf.layers.dense(inputs=L6_fc,
+    L7_fc = tf.layers.Dense(inputs=L6_fc,
                             units=10,
                             kernel_initializer=kernel,)
     Y_pred = tf.nn.softmax(L7_fc)
