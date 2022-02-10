@@ -40,3 +40,5 @@ def inception_network():
     softmax = K.layers.Dense(1000, activation='softmax')(linear)
     model = K.models.Model(inputs=X, outputs=softmax)
     return model
+
+
