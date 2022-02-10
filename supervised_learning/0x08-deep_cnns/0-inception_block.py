@@ -9,7 +9,7 @@ def inception_block(A_prev, filters):
     F3R = filters[1]
     F3 = filters[2]
     F5R = filters[3]
-    F5 = filtes[4]
+    F5 = filters[4]
     FPP = filters[5]
     c1x1 = K.layers.Conv2D(F1, (1, 1), padding='same',
                            activation='relu')(A_prev)
