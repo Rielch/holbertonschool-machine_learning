@@ -42,6 +42,6 @@ class Neuron:
         """Calcualtes the cost of the model"""
         m = Y.shape[1]
         a = 1.0000001 - A
-        y = 1 - a
+        y = 1 - Y
         cost = -(1 / m) * np.sum(Y * np.log(A) + y * np.log(a))
         return cost
