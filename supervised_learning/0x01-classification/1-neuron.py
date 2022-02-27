@@ -29,3 +29,4 @@ class Neuron:
     @property
     def A(self):
         """Getter for the activation of the neuron"""
+        return self.__A
