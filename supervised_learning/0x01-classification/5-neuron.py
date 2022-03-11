@@ -7,60 +7,52 @@ class Neuron:
     """Neuron that performs binary classification"""
 
     def __init__(self, nx):
-        """Initializates the neuron"""
-
+        """Initializes the neuron"""
         if type(nx) is not int:
-            raise TypeError('nx must be an integer')
-
+            raise TypeError("nx must be an integer")
         if nx < 1:
-            raise ValueError('nx must be a positive integer')
-
+            raise ValueError("nx must be a positive integer")
         self.__W = np.random.randn(1, nx)
         self.__b = 0
         self.__A = 0
 
     @property
     def W(self):
-        """Gets the value of W"""
+        """Getter for the weights of the neuron"""
         return self.__W
 
     @property
     def b(self):
-        """Gets the value of b"""
+        """Getter for the bias of the neuron"""
         return self.__b
 
     @property
     def A(self):
-        """Gets the value of A"""
+        """Getter for the activation of the neuron"""
         return self.__A
 
     def forward_prop(self, X):
-        """Calculates the forward propagation"""
-        forward_prop = np.matmul(self.__W, X) + self.__b
-        sigmoid = 1 / (1 + (np.e**(-forward_prop)))
+        """Calculates the forward propagation of a neuron"""
+        forward = np.matmul(self.__W, X) + self.__b
+        sigmoid = 1 / (1 + (np.e ** (-forward)))
         self.__A = sigmoid
         return self.__A
 
     def cost(self, Y, A):
-        """Calculates the cost of the neuron"""
+        """Calcualtes the cost of the model"""
         m = Y.shape[1]
         a = 1.0000001 - A
         y = 1 - Y
-        cost_ = -(1 / m) * np.sum(Y * np.log(A) + y * np.log(a))
-        return cost_
+        cost = -(1 / m) * np.sum(Y * np.log(A) + y * np.log(a))
+        return cost
 
     def evaluate(self, X, Y):
-        """Evaluates the network  predictions"""
+        """Evaluates the network predictions"""
         self.forward_prop(X)
         prediction = np.where(self.__A >= 0.5, 1, 0)
         cost = self.cost(Y, self.__A)
         return (prediction, cost)
 
     def gradient_descent(self, X, Y, A, alpha=0.05):
-        """Calculates one pass of gradient descent on the neuron"""
-        m = X.shape[1]
-        z = A - Y
-        w = np.matmul(X, z.T) / m
-        b = np.sum(z) / m
-        self.__W = self.__W - (alpha * w).T
-        self.__b = self.__b - (alpha * b).T
+        """Calcualtes one pass of gradient descent"""
+        
